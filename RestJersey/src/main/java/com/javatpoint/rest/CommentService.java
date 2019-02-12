@@ -31,10 +31,10 @@ public class CommentService {
 		System.out.println(username);
 		System.out.println(comments);
 		try {
-		String[] data= {username,comments};
+		String[] data = {username,comments};
 		DbConnection dbConnect=new DbConnection();
 		CommentHandler commentHandle=new CommentHandler();
-		flag= commentHandle.InsercommentToDatabase(dbConnect.getConnection(), data, username,comments);
+		flag = commentHandle.InsercommentToDatabase(dbConnect.getConnection(), data, username,comments);
 		System.out.println(flag);
 		
 		
@@ -47,7 +47,6 @@ public class CommentService {
 	
 	 @GET
 	 @Path("/getcomments")
-	 //@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	 @Produces(MediaType.APPLICATION_JSON)
 	 public String getcomments(@QueryParam("name") String username,
 	 @QueryParam("comments") String comments) {
@@ -55,12 +54,12 @@ public class CommentService {
 		List<String> flag=new ArrayList<String>();
 		String jsonFromJavaArrayList=null;
 		try {
-		String[] data= {username,comments};
-		DbConnection dbConnect=new DbConnection();
-		CommentHandler commentHandle=new CommentHandler();
+		String[] data = {username,comments};
+		DbConnection dbConnect = new DbConnection();
+		CommentHandler commentHandle = new CommentHandler();
 		flag= commentHandle.RetrieveComment(dbConnect.getConnection(), data, username,comments);
 		jsonFromJavaArrayList = gsonBuilder.toJson(flag);
-//		System.out.println(jsonFromJavaArrayList);
+
 		
 
 		} 
@@ -69,13 +68,9 @@ public class CommentService {
 			
 		System.out.println("Comment Service Error found : "+e.getMessage());
 			
-			}
+		}
 	
 		return jsonFromJavaArrayList;
-	
-	
-	
-	
 	
 	}
 }
