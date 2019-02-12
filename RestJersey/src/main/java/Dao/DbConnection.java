@@ -21,7 +21,8 @@ catch (SQLException e)
 throw e;
 }
 catch (Exception e)
-{System.out.println("Database Connection class error :"+e.getMessage());
+{
+System.out.println("Database Connection class error :"+e.getMessage());
 throw e;
 }
 }
