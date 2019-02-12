@@ -26,8 +26,10 @@ public class RestClient {
             }
             conn.disconnect();
             br.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } 
+        catch (Exception e) {
+        e.printStackTrace();
+        
         }
         
         
